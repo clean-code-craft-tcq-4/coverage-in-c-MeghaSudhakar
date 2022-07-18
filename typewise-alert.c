@@ -86,13 +86,11 @@ void sendToEmail(BreachType breachType)
   {
     checkmail(breachType);
   }
-  else if(breachType == 'NORMAL')
+  else
   {
     printf("Hi, the temperature is too NORMAL\n");
   }
-  else
-  {
-  }
+  
 }
 
 
