@@ -19,8 +19,8 @@ void sendToEmail(BreachType breachType)
    /* case TOO_HIGH:
       printf("To: %s\n", recepient);
       printf("Hi, the temperature is too high\n");
-      break;*/
-    case NORMAL:
       break;
+    case NORMAL:
+      break;*/
   }
 }
