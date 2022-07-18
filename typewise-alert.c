@@ -61,7 +61,9 @@ void sendToController(BreachType breachType)
   printf("%x : %x\n", header, breachType);
 }
 
-void sendToEmail(BreachType breachType) 
+
+
+void checkmail(BreachType breachType) 
 {
   const char* recepient = "a.b@c.com";
   switch(breachType) 
@@ -74,9 +76,24 @@ void sendToEmail(BreachType breachType)
       printf("To: %s\n", recepient);
       printf("Hi, the temperature is too high\n");
       break;
-    case NORMAL:
-      break;
+    
   }
 }
+
+void sendToEmail(BreachType breachType) 
+{
+  if(breachType == 'TOO_LOW' || breachType == 'TOO_HIGH' )
+  {
+    checkmail(breachType);
+  }
+  else if(breachType == 'NORMAL')
+  {
+    printf("Hi, the temperature is too NORMAL\n");
+  }
+  else
+  {
+  }
+}
+
 
 
