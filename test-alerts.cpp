@@ -2,9 +2,7 @@
 
 #include "test/catch.hpp"
 #include "typewise-alert.h"
-#include "Check_and_Alert.h"
-#include "Classify_Breach_Check.h"
-#include "How_to_alert.h"
+
 
 TEST_CASE("infers the breach according to limits") 
 {
