@@ -2,6 +2,7 @@
 
 
 #include <stdio.h>
+int ControllerCount =0;
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
 {
@@ -40,13 +41,14 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
 
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
 {
-
+ // int result =0;
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
 
   switch(alertTarget) 
   {
     case TO_CONTROLLER:
       sendToController(breachType);
+      REQUIRE(ControllerCount == 1);
       break;
     case TO_EMAIL:
       sendToEmail(breachType);
@@ -59,6 +61,8 @@ void sendToController(BreachType breachType)
 {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
+  
+ ControllerCount++;
 }
 
 
