@@ -28,7 +28,7 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
  
-  struct stat array[1];
+   stat array;
  
   array.lowerLimit = 0;
  array.upperLimit = 0;
