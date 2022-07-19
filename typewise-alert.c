@@ -4,9 +4,10 @@
 #include <stdio.h>
 struct
   {
-    LowerLimit;
-    UpperLimit;
+    int LowerLimit=0;
+    int UpperLimit=0;
   } limit;
+
 int ControllerCount =0;
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
