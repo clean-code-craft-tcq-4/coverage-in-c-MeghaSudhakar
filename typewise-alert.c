@@ -8,8 +8,6 @@ struct
     int upperLimit=0;
   } limit;
 
-struct limit coolinglimit[3]={0};
-
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
 {
   if(value <= lowerLimit) 
@@ -26,7 +24,7 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
  
-  limit coolinglimit[3] = {0,35}, {0,45}, {0,40};
+  limit coolinglimit[3] = {{0,35}, {0,45}, {0,40}};
   
   return inferBreach(temperatureInC, coolinglimit[coolingType].lowerLimit, coolinglimit[coolingType].upperLimit);
 
