@@ -8,7 +8,7 @@ struct
     int upperLimit=0;
   } limit;
 
-struct limit coolinglimit[3];
+struct limit coolinglimit[3]={0};
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
 {
@@ -26,7 +26,7 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
  
-  limit coolinglimit[3] = {{0,35}, {0,45}, {0,40}};
+  limit coolinglimit[3] = {0,35}, {0,45}, {0,40};
   
   return inferBreach(temperatureInC, coolinglimit[coolingType].lowerLimit, coolinglimit[coolingType].upperLimit);
 
@@ -53,8 +53,6 @@ void sendToController(BreachType breachType)
 {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
-  
- //ControllerCount++;
 }
 
 
@@ -62,18 +60,13 @@ void sendToController(BreachType breachType)
 void checkmail(BreachType breachType) 
 {
   const char* recepient = "a.b@c.com";
-  switch(breachType) 
-  {
-    case TOO_LOW:
-      printf("To: %s\n", recepient);
-      printf("Hi, the temperature is too low\n");
-      break;
-    case TOO_HIGH:
-      printf("To: %s\n", recepient);
-      printf("Hi, the temperature is too high\n");
-      break;
-    
-  }
+  
+  printf("To: %s\n", recepient);
+  
+  const char* buffer[3] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n"}; 
+  
+  printf("%s", buffer[breachType]); 
+  
 }
 
 void sendToEmail(BreachType breachType) 
