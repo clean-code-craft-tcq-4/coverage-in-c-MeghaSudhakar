@@ -33,7 +33,7 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
   limit_array[2].lowerLimit = 0;
   limit_array[2].upperLimit = 40;
   
-  return inferBreach(temperatureInC, limit_array[coolingType].lowerLimit, array[coolingType].upperLimit);
+  return inferBreach(temperatureInC, limit_array[coolingType].lowerLimit, limit_array[coolingType].upperLimit);
   
 }
 
