@@ -2,12 +2,13 @@
 
 
 #include <stdio.h>
-struct
+struct 
   {
     int lowerLimit=0;
     int upperLimit=0;
   } limit;
 
+struct limit coolinglimit[3];
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
 {
