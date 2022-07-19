@@ -4,12 +4,6 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct 
-  {
-    int lowerLimit;
-    int upperLimit;
-  } limit_struct_buffer;
-
 
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
