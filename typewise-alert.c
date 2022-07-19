@@ -4,7 +4,11 @@
 #include "catch.hpp"
 
 #include <stdio.h>
-
+struct
+  {
+    LowerLimit;
+    UpperLimit;
+  } limit;
 int ControllerCount =0;
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
@@ -22,9 +26,19 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
 
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
-  int lowerLimit = 0;
-  int upperLimit = 0;
-  switch(coolingType) 
+ // int lowerLimit = 0;
+ // int upperLimit = 0;
+  
+  
+  
+  limit coolinglimit[3] = {{0,35}, {0,45}, {0,40}};
+  
+  
+  
+  
+  return inferBreach(temperatureInC, coolinglimit[coolingType].LowerLimit, coolinglimit[coolingType].UpperLimit);
+  
+  /*switch(coolingType) 
   {
     case PASSIVE_COOLING:
       lowerLimit = 0;
@@ -38,8 +52,8 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
       lowerLimit = 0;
       upperLimit = 40;
       break;
-  }
-  return inferBreach(temperatureInC, lowerLimit, upperLimit);
+  }*/
+ // return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
 
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
@@ -52,7 +66,7 @@ void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double
     case TO_CONTROLLER:
       {
       sendToController(breachType);
-      REQUIRE(ControllerCount == 1);
+     // REQUIRE(ControllerCount == 1);
       break;
       }
     case TO_EMAIL:
@@ -67,7 +81,7 @@ void sendToController(BreachType breachType)
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
   
- ControllerCount++;
+ //ControllerCount++;
 }
 
 
@@ -91,14 +105,19 @@ void checkmail(BreachType breachType)
 
 void sendToEmail(BreachType breachType) 
 {
-  if(breachType == 'TOO_LOW' || breachType == 'TOO_HIGH' )
+  
+  const char* buffer[3] = {"Hi, the temperature is NORMAL\n", "Hi, the temperature is TOO_LOW\n", "Hi, the temperature is TOO_HIGH\n"};
+  
+  printf (" %s", buffer[breachType]);
+  
+ /* if(breachType == 'TOO_LOW' || breachType == 'TOO_HIGH' )
   {
     checkmail(breachType);
   }
   else
   {
-    printf("Hi, the temperature is too NORMAL\n");
-  }
+    printf("Hi, the temperature is NORMAL\n");
+  }*/
   
 }
 
