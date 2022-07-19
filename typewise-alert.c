@@ -1,7 +1,8 @@
 #include "typewise-alert.h"
-
+#include "alerters.h"
 
 #include <stdio.h>
+
 int ControllerCount =0;
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
