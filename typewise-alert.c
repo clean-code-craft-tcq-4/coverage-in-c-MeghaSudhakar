@@ -48,9 +48,11 @@ void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double
   switch(alertTarget) 
   {
     case TO_CONTROLLER:
+      {
       sendToController(breachType);
       REQUIRE(ControllerCount == 1);
       break;
+      }
     case TO_EMAIL:
       sendToEmail(breachType);
       break;
