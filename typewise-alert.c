@@ -2,13 +2,15 @@
 
 
 #include <stdio.h>
+#include <string.h>
+
 struct 
   {
     int lowerLimit;
     int upperLimit;
   } limit;
 
-struct limit array[1];
+
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
 {
@@ -26,7 +28,7 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
  
-  
+  struct limit array[1];
  
   array.lowerLimit = 0;
  array.upperLimit = 0;
