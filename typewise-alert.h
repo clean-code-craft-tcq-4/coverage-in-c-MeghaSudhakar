@@ -1,5 +1,11 @@
 #pragma once
 
+typedef struct 
+  {
+    int lowerLimit;
+    int upperLimit;
+  } limit_struct_buffer;
+
 typedef enum 
 {
   PASSIVE_COOLING,
