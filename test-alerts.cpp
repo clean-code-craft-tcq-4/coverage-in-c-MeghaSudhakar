@@ -20,7 +20,7 @@ TEST_CASE("classifyTemperatureBreach")
   
 }
 
-TEST_CASE("sendToController") 
+TEST_CASE("checkAndAlert") 
 {
-  REQUIRE(sendToController(NORMAL) == NORMAL);
+  REQUIRE(checkAndAlert(TO_CONTROLLER,PASSIVE_COOLING,45) == NORMAL);
 }
