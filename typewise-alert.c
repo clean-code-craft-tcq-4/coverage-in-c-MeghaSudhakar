@@ -1,8 +1,6 @@
 #include "typewise-alert.h"
 
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 
-#include "catch.hpp"
 #include <stdio.h>
 
 int ControllerCount =0;
