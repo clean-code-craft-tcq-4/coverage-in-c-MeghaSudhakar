@@ -4,11 +4,11 @@
 #include <stdio.h>
 #include <string.h>
 
-struct 
+struct stat
   {
     int lowerLimit;
     int upperLimit;
-  } limit;
+  };
 
 
 
@@ -28,7 +28,7 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
  
-  struct limit array[1];
+  struct stat array[1];
  
   array.lowerLimit = 0;
  array.upperLimit = 0;
