@@ -4,11 +4,11 @@
 #include <stdio.h>
 #include <string.h>
 
-struct stat
+typedef struct 
   {
     int lowerLimit;
     int upperLimit;
-  };
+  } stat;
 
 
 
