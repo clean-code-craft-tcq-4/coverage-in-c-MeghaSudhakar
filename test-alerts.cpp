@@ -20,3 +20,7 @@ TEST_CASE("classifyTemperatureBreach")
   
 }
 
+TEST_CASE("sendToController") 
+{
+  REQUIRE(sendToController(NORMAL) == NORMAL);
+}
