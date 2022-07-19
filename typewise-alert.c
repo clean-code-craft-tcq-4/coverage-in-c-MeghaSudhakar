@@ -8,7 +8,7 @@ typedef struct
   {
     int lowerLimit;
     int upperLimit;
-  } stat;
+  } limit_struct_buffer;
 
 
 
@@ -28,20 +28,19 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
  
-   stat array[3];
+  limit_struct_buffer limit_array[3];
  
-  array[0].lowerLimit = 0;
- array[0].upperLimit = 35;
+  limit_array[0].lowerLimit = 0;
+  limit_array[0].upperLimit = 35;
   
-  array[1].lowerLimit = 0;
- array[1].upperLimit = 45;
+  limit_array[1].lowerLimit = 0;
+  limit_array[1].upperLimit = 45;
   
-  array[2].lowerLimit = 0;
- array[2].upperLimit = 40;
+  limit_array[2].lowerLimit = 0;
+  limit_array[2].upperLimit = 40;
   
-  return inferBreach(temperatureInC, array[coolingType].lowerLimit, array[coolingType].upperLimit);
-//  return inferBreach(10, 0, 20);
-
+  return inferBreach(temperatureInC, limit_array[coolingType].lowerLimit, array[coolingType].upperLimit);
+  
 }
 
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
