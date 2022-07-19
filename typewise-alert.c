@@ -4,11 +4,10 @@
 #include <stdio.h>
 struct
   {
-    int LowerLimit=0;
-    int UpperLimit=0;
+    int lowerLimit=0;
+    int upperLimit=0;
   } limit;
 
-int ControllerCount =0;
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
 {
@@ -25,49 +24,23 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
 
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
- // int lowerLimit = 0;
- // int upperLimit = 0;
-  
-  
-  
+ 
   limit coolinglimit[3] = {{0,35}, {0,45}, {0,40}};
   
-  
-  
-  
-  return inferBreach(temperatureInC, coolinglimit[coolingType].LowerLimit, coolinglimit[coolingType].UpperLimit);
-  
-  /*switch(coolingType) 
-  {
-    case PASSIVE_COOLING:
-      lowerLimit = 0;
-      upperLimit = 35;
-      break;
-    case HI_ACTIVE_COOLING:
-      lowerLimit = 0;
-      upperLimit = 45;
-      break;
-    case MED_ACTIVE_COOLING:
-      lowerLimit = 0;
-      upperLimit = 40;
-      break;
-  }*/
- // return inferBreach(temperatureInC, lowerLimit, upperLimit);
+  return inferBreach(temperatureInC, coolinglimit[coolingType].lowerLimit, coolinglimit[coolingType].upperLimit);
+
 }
 
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
 {
- // int result =0;
+
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
 
   switch(alertTarget) 
   {
     case TO_CONTROLLER:
-      {
       sendToController(breachType);
-     // REQUIRE(ControllerCount == 1);
       break;
-      }
     case TO_EMAIL:
       sendToEmail(breachType);
       break;
@@ -104,20 +77,8 @@ void checkmail(BreachType breachType)
 
 void sendToEmail(BreachType breachType) 
 {
-  
-  const char* buffer[3] = {"Hi, the temperature is NORMAL\n", "Hi, the temperature is TOO_LOW\n", "Hi, the temperature is TOO_HIGH\n"};
-  
-  printf (" %s", buffer[breachType]);
-  
- /* if(breachType == 'TOO_LOW' || breachType == 'TOO_HIGH' )
-  {
-    checkmail(breachType);
-  }
-  else
-  {
-    printf("Hi, the temperature is NORMAL\n");
-  }*/
-  
+  const char* buffer[3] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n"}; 
+  printf("%s", buffer[breachType]);  
 }
 
 
