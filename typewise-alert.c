@@ -43,16 +43,16 @@ void checkmail(BreachType breachType)
   
   printf("To: %s\n", recepient);
   
-  const char* buffer[3] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n"}; 
+  const char* breachbuffer[3] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n"}; 
   
-  printf("%s", buffer[breachType]); 
+  printf("%s", breachbuffer[breachType]); 
   
 }
 
 void sendToEmail(BreachType breachType) 
 {
-  const char* buffer[3] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n"}; 
-  printf("%s", buffer[breachType]);  
+  const char* breachbuffer[3] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n"}; 
+  printf("%s", breachbuffer[breachType]);  
   
 }
 
