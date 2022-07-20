@@ -3,6 +3,8 @@
 #include "test/catch.hpp"
 #include "typewise-alert.h"
 #include "inferBreach.h"
+#include "ActionFile.h"
+#include "definition.h"
 
 TEST_CASE("infers the breach according to limits") 
 {
