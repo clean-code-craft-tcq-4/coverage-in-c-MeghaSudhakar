@@ -54,8 +54,7 @@ TEST_CASE("checkAndAlert one")
   BatteryCharacter SAMPLE;
   SAMPLE.coolingType = PASSIVE_COOLING;
     
-  REQUIRE(checkAndAlert(TO_CONTROLLER,SAMPLE,45) == NORMAL);
- // REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL);  
+  REQUIRE(checkAndAlert(TO_CONTROLLER,SAMPLE,45) == NORMAL); 
 }
 
 TEST_CASE("checkAndAlert two") 
@@ -64,7 +63,6 @@ TEST_CASE("checkAndAlert two")
   SAMPLE.coolingType = HI_ACTIVE_COOLING;
     
   REQUIRE(checkAndAlert(TO_CONTROLLER,SAMPLE,45) == NORMAL);
-//  REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL);  
 }
 
 TEST_CASE("checkAndAlert three") 
@@ -73,7 +71,6 @@ TEST_CASE("checkAndAlert three")
   SAMPLE.coolingType = MED_ACTIVE_COOLING;
     
   REQUIRE(checkAndAlert(TO_CONTROLLER,SAMPLE,45) == NORMAL);
- // REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL);  
 }
 
 TEST_CASE("checkAndAlert four") 
@@ -81,6 +78,5 @@ TEST_CASE("checkAndAlert four")
   BatteryCharacter SAMPLE;
   SAMPLE.coolingType = UNDEFINED_COOLINGTYPE;
     
-  REQUIRE(checkAndAlert(UNDEFINED_TARGET,SAMPLE,45) == NORMAL);
- // REQUIRE(func(UNDEFINED_TARGET,NORMAL) == 1);  
+  REQUIRE(checkAndAlert(UNDEFINED_TARGET,SAMPLE,45) == 1);  
 }
