@@ -47,3 +47,14 @@ TEST_CASE("func")
   REQUIRE(func(EMAIL,NORMAL) == NORMAL);
   
 }
+
+TEST_CASE("checkAndAlert") 
+{
+   BatteryCharacter SAMPLE;
+  SAMPLE.coolingType = PASSIVE_COOLING;
+    
+  REQUIRE(checkAndAlert(TO_CONTROLLER,SAMPLE,45) == NORMAL);
+  //REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL);
+  //REQUIRE(func(EMAIL,NORMAL) == NORMAL);
+  
+}
