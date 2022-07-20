@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "inferBreach.h"
-#include "definition.h"
+
 
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
 {
