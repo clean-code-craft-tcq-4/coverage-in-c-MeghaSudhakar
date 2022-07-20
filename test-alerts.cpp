@@ -43,9 +43,7 @@ TEST_CASE("sendToController")
 TEST_CASE("func") 
 {
   REQUIRE(func(TO_CONTROLLER,NORMAL) == NORMAL);
-  REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL);
-  REQUIRE(func(EMAIL,NORMAL) == NORMAL);
-  
+  REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL); 
 }
 
 TEST_CASE("checkAndAlert") 
