@@ -1,4 +1,4 @@
-
+#include "def.h"
 
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
 void checkmail(BreachType breachType);
