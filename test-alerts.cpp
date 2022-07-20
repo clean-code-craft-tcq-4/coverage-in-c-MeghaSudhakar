@@ -26,3 +26,19 @@ TEST_CASE("checkmail")
   REQUIRE(checkmail(TOO_HIGH) == TOO_HIGH);
   REQUIRE(checkmail(NORMAL) != 4);
 }
+
+TEST_CASE("sendToEmail") 
+{
+  REQUIRE(sendToEmail(NORMAL) == NORMAL);
+  REQUIRE(sendToEmail(TOO_LOW) == TOO_LOW);
+  REQUIRE(sendToEmail(TOO_HIGH) == TOO_HIGH);
+  REQUIRE(sendToEmail(NORMAL) != 4);
+}
+
+TEST_CASE("sendToController") 
+{
+  REQUIRE(sendToController(NORMAL) == NORMAL);
+  REQUIRE(sendToController(TOO_LOW) == TOO_LOW);
+  REQUIRE(sendToController(TOO_HIGH) == TOO_HIGH);
+  REQUIRE(sendToController(NORMAL) != 4);
+}
