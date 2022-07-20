@@ -26,8 +26,16 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
 
 int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
 {
+  int result=0;
+  
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
-
+  result = func(alertTarget, breachType);
+  
+  return result;
+}
+  
+int func(AlertTarget alertTarget, BreachType breachType)
+{
   switch(alertTarget) 
   {
     case TO_CONTROLLER:
@@ -41,9 +49,10 @@ int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double 
       sendToEmail(breachType);
         return 0;
       break;
+      }
         default:
         return 1;
-      }
+      
   }
   
 }
