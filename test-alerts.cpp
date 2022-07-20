@@ -22,4 +22,5 @@ TEST_CASE("classifyTemperatureBreach")
 TEST_CASE("checkmail") 
 {
   REQUIRE(checkmail(NORMAL) == NORMAL);
+  REQUIRE(checkmail(4) == 4);
 }
