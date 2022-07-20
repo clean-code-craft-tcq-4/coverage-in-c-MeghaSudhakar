@@ -24,6 +24,7 @@ TEST_CASE("checkmail")
   REQUIRE(checkmail(NORMAL) == NORMAL);
   REQUIRE(checkmail(TOO_LOW) == NORMAL);
   REQUIRE(checkmail(TOO_HIGH) == NORMAL);
+  REQUIRE(checkmail(UNDEFINED_BREACHTYPE) == 1);
 }
 
 TEST_CASE("sendToEmail") 
@@ -31,6 +32,7 @@ TEST_CASE("sendToEmail")
   REQUIRE(sendToEmail(NORMAL) == NORMAL);
   REQUIRE(sendToEmail(TOO_LOW) == NORMAL);
   REQUIRE(sendToEmail(TOO_HIGH) == NORMAL);
+  REQUIRE(sendToEmail(UNDEFINED_BREACHTYPE) == 1);
 }
 
 TEST_CASE("sendToController") 
@@ -38,21 +40,48 @@ TEST_CASE("sendToController")
   REQUIRE(sendToController(NORMAL) == NORMAL);
   REQUIRE(sendToController(TOO_LOW) == NORMAL);
   REQUIRE(sendToController(TOO_HIGH) == NORMAL);
+  REQUIRE(sendToController(UNDEFINED_BREACHTYPE) == 1);
 }
 
 TEST_CASE("func") 
 {
   REQUIRE(func(TO_CONTROLLER,NORMAL) == NORMAL);
   REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL); 
+  REQUIRE(func(UNDEFINED_TARGET,NORMAL) == 1); 
 }
 
 TEST_CASE("checkAndAlert") 
 {
-   BatteryCharacter SAMPLE;
+  BatteryCharacter SAMPLE;
   SAMPLE.coolingType = PASSIVE_COOLING;
     
   REQUIRE(checkAndAlert(TO_CONTROLLER,SAMPLE,45) == NORMAL);
-  //REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL);
-  //REQUIRE(func(EMAIL,NORMAL) == NORMAL);
-  
+  REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL);  
+}
+
+TEST_CASE("checkAndAlert") 
+{
+  BatteryCharacter SAMPLE;
+  SAMPLE.coolingType = HI_ACTIVE_COOLING;
+    
+  REQUIRE(checkAndAlert(TO_CONTROLLER,SAMPLE,45) == NORMAL);
+  REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL);  
+}
+
+TEST_CASE("checkAndAlert") 
+{
+  BatteryCharacter SAMPLE;
+  SAMPLE.coolingType = MED_ACTIVE_COOLING;
+    
+  REQUIRE(checkAndAlert(TO_CONTROLLER,SAMPLE,45) == NORMAL);
+  REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL);  
+}
+
+TEST_CASE("checkAndAlert") 
+{
+  BatteryCharacter SAMPLE;
+  SAMPLE.coolingType = UNDEFINED_COOLINGTYPE;
+    
+  REQUIRE(checkAndAlert(TO_CONTROLLER,SAMPLE,45) == NORMAL);
+  REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL);  
 }
