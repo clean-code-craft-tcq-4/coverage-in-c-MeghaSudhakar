@@ -24,16 +24,17 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
  
-  limit_struct_buffer limit_array[3];
+  limit_struct_buffer limit_array[3] = {{0,35}, {0,45}, {0,40}};
  
-  limit_array[0].lowerLimit = 0;
+  
+  /*limit_array[0].lowerLimit = 0;
   limit_array[0].upperLimit = 35;
   
   limit_array[1].lowerLimit = 0;
   limit_array[1].upperLimit = 45;
   
   limit_array[2].lowerLimit = 0;
-  limit_array[2].upperLimit = 40;
+  limit_array[2].upperLimit = 40;*/
   
   return inferBreach(temperatureInC, limit_array[coolingType].lowerLimit, limit_array[coolingType].upperLimit);
   
