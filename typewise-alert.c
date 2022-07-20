@@ -68,7 +68,7 @@ int checkmail(BreachType breachType)
   
   printf("%s", breachbuffer[breachType]); 
   
-  if(breachType == 3)
+  if(breachType <0 || breachType >=3)
     return 1;
   else
     return 0;
@@ -77,10 +77,10 @@ int checkmail(BreachType breachType)
 
 int sendToEmail(BreachType breachType) 
 {
-  const char* buffer[3] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n"}; 
+  const char* breachbuffer[4] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n", "Hi the temperature is undefined\n" }; 
   printf("%s", buffer[breachType]);  
   
-  if(breachType <0 || breachType >3)
+  if(breachType <0 || breachType >=3)
     return 1;
   else
     return 0;
@@ -91,9 +91,12 @@ int sendToEmail(BreachType breachType)
 int sendToController(BreachType breachType) 
 {
   const unsigned short header = 0xfeed;
+  
+  const char* breachbuffer[4] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n", "Hi the temperature is undefined\n" }; 
+  
   printf("%x : %x\n", header, breachType);
   
-  if(breachType <0 || breachType >3)
+  if(breachType <0 || breachType >=3)
     return 1;
   else
     return 0;
