@@ -22,23 +22,20 @@ TEST_CASE("classifyTemperatureBreach")
 TEST_CASE("checkmail") 
 {
   REQUIRE(checkmail(NORMAL) == NORMAL);
-  REQUIRE(checkmail(TOO_LOW) == TOO_LOW);
-  REQUIRE(checkmail(TOO_HIGH) == TOO_HIGH);
-  REQUIRE(checkmail(NORMAL) != 4);
+  REQUIRE(checkmail(TOO_LOW) == NORMAL);
+  REQUIRE(checkmail(TOO_HIGH) == NORMAL);
 }
 
 TEST_CASE("sendToEmail") 
 {
   REQUIRE(sendToEmail(NORMAL) == NORMAL);
-  REQUIRE(sendToEmail(TOO_LOW) == TOO_LOW);
-  REQUIRE(sendToEmail(TOO_HIGH) == TOO_HIGH);
-  REQUIRE(sendToEmail(NORMAL) != 4);
+  REQUIRE(sendToEmail(TOO_LOW) == NORMAL);
+  REQUIRE(sendToEmail(TOO_HIGH) == NORMAL);
 }
 
 TEST_CASE("sendToController") 
 {
   REQUIRE(sendToController(NORMAL) == NORMAL);
-  REQUIRE(sendToController(TOO_LOW) == TOO_LOW);
-  REQUIRE(sendToController(TOO_HIGH) == TOO_HIGH);
-  REQUIRE(sendToController(NORMAL) != 4);
+  REQUIRE(sendToController(TOO_LOW) == NORMAL);
+  REQUIRE(sendToController(TOO_HIGH) == NORMAL);
 }
