@@ -40,3 +40,4 @@ int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double 
 int checkmail(BreachType breachType);
 int sendToController(BreachType breachType);
 int sendToEmail(BreachType breachType);
+int func(AlertTarget alertTarget, BreachType breachType);
