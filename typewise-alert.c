@@ -43,7 +43,7 @@ void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double
   }
 }
 
-void checkmail(BreachType breachType) 
+int checkmail(BreachType breachType) 
 {
   const char* recepient = "a.b@c.com";
   
@@ -52,6 +52,13 @@ void checkmail(BreachType breachType)
   const char* breachbuffer[3] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n"}; 
   
   printf("%s", breachbuffer[breachType]); 
+  
+  if(breachType <0 || breachType >3)
+    return 0;
+  else
+    return 1;
+    
+    
   
 }
 
