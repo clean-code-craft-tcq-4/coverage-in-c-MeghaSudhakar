@@ -10,7 +10,8 @@ typedef enum
 {
   PASSIVE_COOLING,
   HI_ACTIVE_COOLING,
-  MED_ACTIVE_COOLING
+  MED_ACTIVE_COOLING,
+  UNDEFINED_COOLINGTYPE
 } CoolingType;
 
 typedef enum 
@@ -25,7 +26,8 @@ typedef enum
 typedef enum 
 {
   TO_CONTROLLER,
-  TO_EMAIL
+  TO_EMAIL,
+  UNDEFINED_TARGET
 } AlertTarget;
 
 typedef struct 
