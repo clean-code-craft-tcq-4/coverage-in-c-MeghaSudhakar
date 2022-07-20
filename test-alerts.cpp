@@ -39,3 +39,8 @@ TEST_CASE("sendToController")
   REQUIRE(sendToController(TOO_LOW) == NORMAL);
   REQUIRE(sendToController(TOO_HIGH) == NORMAL);
 }
+
+TEST_CASE("checkAndAlert") 
+{
+  REQUIRE(checkAndAlert(TO_CONTROLLER,PASSIVE_COOLING,25) == NORMAL);
+}
