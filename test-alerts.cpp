@@ -50,7 +50,7 @@ TEST_CASE("func")
   REQUIRE(func(UNDEFINED_TARGET,NORMAL) == 1); 
 }
 
-TEST_CASE("checkAndAlert") 
+TEST_CASE("checkAndAlert one") 
 {
   BatteryCharacter SAMPLE;
   SAMPLE.coolingType = PASSIVE_COOLING;
@@ -59,7 +59,7 @@ TEST_CASE("checkAndAlert")
   REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL);  
 }
 
-TEST_CASE("checkAndAlert") 
+TEST_CASE("checkAndAlert two") 
 {
   BatteryCharacter SAMPLE;
   SAMPLE.coolingType = HI_ACTIVE_COOLING;
@@ -68,7 +68,7 @@ TEST_CASE("checkAndAlert")
   REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL);  
 }
 
-TEST_CASE("checkAndAlert") 
+TEST_CASE("checkAndAlert three") 
 {
   BatteryCharacter SAMPLE;
   SAMPLE.coolingType = MED_ACTIVE_COOLING;
@@ -77,7 +77,7 @@ TEST_CASE("checkAndAlert")
   REQUIRE(func(TO_EMAIL,NORMAL) == NORMAL);  
 }
 
-TEST_CASE("checkAndAlert") 
+TEST_CASE("checkAndAlert four") 
 {
   BatteryCharacter SAMPLE;
   SAMPLE.coolingType = UNDEFINED_COOLINGTYPE;
