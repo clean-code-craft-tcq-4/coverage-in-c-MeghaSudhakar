@@ -40,7 +40,7 @@ TEST_CASE("sendToController")
   REQUIRE(sendToController(TOO_HIGH) == NORMAL);
 }
 
-/*TEST_CASE("checkAndAlert") 
+TEST_CASE("func") 
 {
-  REQUIRE(checkAndAlert(TO_CONTROLLER,0,25) == NORMAL);
-}*/
+  REQUIRE(func(TO_CONTROLLER,NORMAL) == NORMAL);
+}
