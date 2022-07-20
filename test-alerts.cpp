@@ -24,7 +24,7 @@ TEST_CASE("checkmail")
   REQUIRE(checkmail(NORMAL) == NORMAL);
   REQUIRE(checkmail(TOO_LOW) == NORMAL);
   REQUIRE(checkmail(TOO_HIGH) == NORMAL);
-  REQUIRE(checkmail(UNDEFINED_BREACHTYPE) == 1);
+  REQUIRE(checkmail(UNDEFINED_BREACHTYPE) == TOO_LOW);
 }
 
 TEST_CASE("sendToEmail") 
