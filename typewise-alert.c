@@ -1,3 +1,5 @@
+
+
 #include "typewise-alert.h"
 
 
@@ -37,35 +39,32 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
   
 }
 
-int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
+void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
 {
 
-  int result =0;
+
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
 
   switch(alertTarget) 
   {
     case TO_CONTROLLER:
       {
-      result = sendToController(breachType);
+      sendToController(breachType);
       break;
       }
     case TO_EMAIL:
       {
-    result = sendToEmail(breachType);
-        return result;
+      sendToEmail(breachType);
       break;
       }
   }
 }
 
 
-int sendToController(BreachType breachType) 
+void sendToController(BreachType breachType) 
 {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
-  
-  return 1;
 }
 
 
@@ -82,16 +81,11 @@ void checkmail(BreachType breachType)
   
 }
 
-int sendToEmail(BreachType breachType) 
+void sendToEmail(BreachType breachType) 
 {
   const char* buffer[3] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n"}; 
   printf("%s", buffer[breachType]);  
   
-  if(breachType > 4)
-  return 0;
-  else
-    return 1;
 }
-
 
 
