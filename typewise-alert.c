@@ -68,7 +68,7 @@ int checkmail(BreachType breachType)
   
   printf("%s", breachbuffer[breachType]); 
   
-  if(breachType <0 || breachType >3)
+  if(breachType <0 || breachType >=3)
     return 1;
   else
     return 0;
