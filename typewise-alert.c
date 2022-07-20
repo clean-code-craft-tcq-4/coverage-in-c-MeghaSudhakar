@@ -64,7 +64,7 @@ int checkmail(BreachType breachType)
   
   printf("To: %s\n", recepient);
   
-  const char* breachbuffer[3] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n"}; 
+  const char* breachbuffer[4] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n", "Hi the temperature is undefined\n" }; 
   
   printf("%s", breachbuffer[breachType]); 
   
