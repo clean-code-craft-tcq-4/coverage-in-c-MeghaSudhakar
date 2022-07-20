@@ -28,6 +28,8 @@ int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double 
 {
   int result=0;
   
+  
+  
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
   result = func(alertTarget, breachType);
   
