@@ -19,7 +19,7 @@ TEST_CASE("classifyTemperatureBreach")
   
 }
 
-/*TEST_CASE("checkAndAlert") 
+TEST_CASE("checkmail") 
 {
-  REQUIRE(checkAndAlert(TO_CONTROLLER,1,45) == NORMAL);
-}*/
+  REQUIRE(checkmail(NORMAL) == NORMAL);
+}
