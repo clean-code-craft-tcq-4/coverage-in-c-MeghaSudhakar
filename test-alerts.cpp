@@ -42,5 +42,5 @@ TEST_CASE("sendToController")
 
 TEST_CASE("checkAndAlert") 
 {
-  REQUIRE(checkAndAlert(TO_CONTROLLER,PASSIVE_COOLING,25) == NORMAL);
+  REQUIRE(checkAndAlert(TO_CONTROLLER,0,25) == NORMAL);
 }
