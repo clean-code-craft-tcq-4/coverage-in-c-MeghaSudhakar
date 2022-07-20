@@ -36,4 +36,17 @@ void checkmail(BreachType breachType)
 }
 
 
+void sendToEmail(BreachType breachType) 
+{
+  const char* buffer[3] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n"}; 
+  printf("%s", buffer[breachType]);  
+  
+}
+
+
+void sendToController(BreachType breachType) 
+{
+  const unsigned short header = 0xfeed;
+  printf("%x : %x\n", header, breachType);
+}
 
