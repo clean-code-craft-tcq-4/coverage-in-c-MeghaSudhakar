@@ -33,16 +33,16 @@ int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double 
     case TO_CONTROLLER:
       {
       sendToController(breachType);
-        return 1;
+        return 0;
       break;
       }
     case TO_EMAIL:
       {
       sendToEmail(breachType);
-        return 1;
+        return 0;
       break;
         default:
-        return 0;
+        return 1;
       }
   }
   
@@ -73,9 +73,9 @@ int sendToEmail(BreachType breachType)
   const char* buffer[3] = {"Hi the temperature is NORMAL\n", "Hi the temperature is TOO_LOW\n", "Hi the temperature is TOO_HIGH\n"}; 
   printf("%s", buffer[breachType]);  
   
-  if(breachType <0 || breachType >3)
+ /* if(breachType <0 || breachType >3)
     return 1;
-  else
+  else*/
     return 0;
   
 }
@@ -86,9 +86,9 @@ int sendToController(BreachType breachType)
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
   
-  if(breachType <0 || breachType >3)
+  /*if(breachType <0 || breachType >3)
     return 1;
-  else
+  else*/
     return 0;
 }
 
